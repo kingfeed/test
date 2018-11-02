@@ -50,6 +50,7 @@ public class TestComparable {
         @Override
         public int compareTo(User o) {
             if(this == o) return 0;
+            if(this.equals(o)) return 0;
             int levelCompare = Integer.compare(this.level,o.level);
             return  levelCompare == 0 ?
                     Integer.compare(this.age,o.age):levelCompare;
