@@ -7,7 +7,9 @@ public class TestCollection {
 
     public static void main(String[] args) {
         //testArrayListInitial();
-        testHashMapInitial();
+        //testHashMapInitial();
+        List abc = new ArrayList();
+        abc.addAll(null);
     }
 
     private static void testArrayListInitial() {
