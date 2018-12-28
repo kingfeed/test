@@ -94,6 +94,21 @@ public class SubTest {
         System.out.println("b1m4+b2m4+b3m4s======"+b1m4.add(b2m4).add(b3m4s));
         BigDecimal b4m4 = b4d4.multiply(new BigDecimal(Double.toString(33.3363D)));
         System.out.println("b4m======"+b4m);
+
+        /**
+         * b1m======15.9084823956
+         * b2m======15.9228170046
+         * b3m======1.5050005998
+         * b1m+b2m+b3m======33.3363000000
+         * b4m======33.3363000000
+         * b1m4======15.9081
+         * b2m4======15.9214
+         * b3m4======1.5035
+         * b3m4s======1.5068
+         * b1m4+b2m4+b3m4======33.3330
+         * b1m4+b2m4+b3m4s======33.3363
+         * b4m======33.3363000000
+         */
     }
 
     public static void main(String[] args) {
