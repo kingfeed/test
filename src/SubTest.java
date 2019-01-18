@@ -6,6 +6,9 @@ import java.util.stream.Collectors;
 
 /**
  * 减法处理，数据错误问题，double 类型 转换成String可用
+ * 不整除问题
+ * 四舍五入问题
+ * 精度问题
  */
 
 public class SubTest {
@@ -25,6 +28,9 @@ public class SubTest {
          * t3======1.0000 t3======0.9999
          * t4======0.0000 t4======0.0001
          */
+
+        BigDecimal t5 = new BigDecimal(Double.toString(0.9913D)).setScale(6);
+        System.out.println("t5======"+t5);
         System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
 
         BigDecimal b1 = new BigDecimal(Double.toString(1.1099D));
@@ -113,9 +119,52 @@ public class SubTest {
 
     public static void main(String[] args) {
 
-        doIt();
+       // doIt();
         //doSub();
+        //doSort();
+        //doScale();
 
+    }
+
+    private static void doScale() {
+        //3.0000
+        System.out.println(new BigDecimal(Double.toString(6.000D)).divide(new BigDecimal(Double.toString(2.0D))
+        ).setScale(4));
+
+        //3.0
+        System.out.println(new BigDecimal(Double.toString(6.000D)).divide(new BigDecimal(Double.toString(2.0D))
+        ).setScale(4).doubleValue());
+
+
+        System.out.println(new BigDecimal(Double.toString(6.0006648D)).setScale(5,BigDecimal.ROUND_HALF_UP));
+    }
+
+    private static void doSort(){
+        List<ScmZbOutDetail> list = new ArrayList<>();
+        ScmZbOutDetail detail1 = new ScmZbOutDetail();
+        detail1.setGoodsQty(12.32454D);
+        detail1.setGoodsId("1");
+        ScmZbOutDetail detail2 = new ScmZbOutDetail();
+        detail2.setGoodsQty(12.30);
+        detail2.setGoodsId("1");
+        ScmZbOutDetail detail3 = new ScmZbOutDetail();
+        detail3.setGoodsQty(12.4567);
+        detail3.setGoodsId("1");
+        ScmZbOutDetail detail4 = new ScmZbOutDetail();
+        detail4.setGoodsQty(10.4597D);
+        detail4.setGoodsId("1");
+        ScmZbOutDetail detail5 = new ScmZbOutDetail();
+        detail5.setGoodsQty(101.3289D);
+        detail5.setGoodsId("2");
+        list.add(detail1);
+        list.add(detail2);
+        list.add(detail3);
+        list.add(detail4);
+        list.add(detail5);
+        list.sort(Comparator.comparing(ScmZbOutDetail::getGoodsQty));
+        for(ScmZbOutDetail zb:list){
+            System.out.println(zb.getGoodsQty());
+        }
     }
 
     private static void doSub() {
@@ -151,6 +200,8 @@ public class SubTest {
         list.add(detail4);
         list.add(detail5);
         List<ScmZbOutDetail> scmZbOutDetailList = new ArrayList<>();
+        scmZbOutDetailList.sort(Comparator.comparing(ScmZbOutDetail::getGoodsQty));
+        System.out.println(scmZbOutDetailList.toArray());
 
         list.stream().
                 collect(Collectors.groupingBy(ScmZbOutDetail::getGoodsId)).forEach((k, v) -> {
