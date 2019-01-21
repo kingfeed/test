@@ -26,15 +26,7 @@ public class ShellSort {
         if(a == null) {return;}
         int gap  = a.length/2;
         while (gap >= 1) {
-            for(int i = gap; i<a.length;i++){
-                int tmp = a[i];
-                int j = i-gap;
-                while (j>=0 && a[j] > tmp){
-                    a[j+gap] = a[j];
-                    j = j - gap;
-                }
-                a[j+gap] = tmp;
-            }
+            compareByGap(a, gap);
             gap = gap/2;
         }
     }
@@ -49,16 +41,20 @@ public class ShellSort {
             gap = gap * 3 + 1;
         }
        while (gap >= 1) {
-            for(int i = gap;i<a.length;i++){
-                int tmp = a[i];
-                int j = i - gap;
-                while(j >=0 && a[j]>tmp){
-                    a[j+gap] = a[j];
-                    j = j - gap;
-                }
-                a[j+gap] = tmp;
+           compareByGap(a, gap);
+           gap = gap/3;
+        }
+    }
+
+    private static void compareByGap(Integer[] a, int gap) {
+        for (int i = gap; i < a.length; i++) {
+            int tmp = a[i];
+            int j = i - gap;
+            while (j >= 0 && a[j] > tmp) {
+                a[j + gap] = a[j];
+                j = j - gap;
             }
-            gap = gap/3;
+            a[j + gap] = tmp;
         }
     }
 }
