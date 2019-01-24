@@ -25,6 +25,4 @@ public class SelectionSort {
             a[k] = value;
         }
     }
-
-
 }
