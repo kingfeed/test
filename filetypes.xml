@@ -3,6 +3,7 @@
     <extensionMap>
       <mapping pattern="production-processing_20181203.sql" type="PLAIN_TEXT" />
       <mapping ext="jks" type="PLAIN_TEXT" />
+      <mapping ext="readme" type="PLAIN_TEXT" />
     </extensionMap>
   </component>
 </application>
