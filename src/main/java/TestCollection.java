@@ -1,12 +1,23 @@
-import java.util.*;
+import lombok.extern.slf4j.Slf4j;
 
+import java.util.*;
+import java.util.stream.Collectors;
+
+@Slf4j
 public class TestCollection {
 
     public static void main(String[] args) {
-        //testArrayListInitial();
-        //testHashMapInitial();
-        List abc = new ArrayList();
-        abc.addAll(null);
+        testStream();
+    }
+
+    static void testStream(){
+        List<String> stringList = new ArrayList<>();
+
+        Map<Integer,String> integerStringMap = stringList.stream().collect(Collectors.toMap(String::length,s -> s ));
+        for(Integer i : integerStringMap.keySet()){
+            log.info("{}={}",i,integerStringMap.get(i));
+        }
+
     }
 
     private static void testArrayListInitial() {
