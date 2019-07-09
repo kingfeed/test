@@ -18,4 +18,8 @@ public class NameHolder {
         log.info("NameHolder GET Thread:{},Name:{}",Thread.currentThread().getName(),stringThreadLocal.get());
         return stringThreadLocal.get();
     }
+
+    public static void clean(){
+        stringThreadLocal.remove();
+    }
 }
