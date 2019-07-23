@@ -70,8 +70,16 @@
           <option name="url" value="http://github.com" />
           <option name="userName" value="kingfeed" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/openzipkin/sleuth-webmvc-example.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/openzipkin/zipkin" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="D:\learn\google" />
+    <option name="cloneParentDir" value="D:\learn" />
   </component>
 </application>
