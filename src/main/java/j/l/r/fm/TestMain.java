@@ -56,5 +56,7 @@ public class TestMain {
         Method method = MethodUtils.getAccessibleMethod(c.getClass(),"setColor",String.class);
         method.invoke(c,"yellow");
         log.info("color = {}",c.getColor());
+        log.info("null instanceof Object is {}",null instanceof Object);
+        log.info("new Object() instanceof Object is {}",new Object() instanceof Object);
     }
 }

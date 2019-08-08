@@ -19,4 +19,5 @@ dependencies {
     compile group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
     compile group: 'com.alibaba', name: 'fastjson', version: '1.2.44'
+    compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.3'
 }

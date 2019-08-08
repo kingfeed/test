@@ -16,4 +16,8 @@ public class Garfield extends Cat {
      * 领域
      */
     private String field;
+
+    private void go(){
+
+    }
 }
