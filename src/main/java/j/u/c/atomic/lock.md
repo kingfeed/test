@@ -1,0 +1,119 @@
+public class UserClickCounter {
+    ConcurrentHashMap<String,Integer> concurrentHashMap = new ConcurrentHashMap<>();
+    ReentrantLock lock = new ReentrantLock();
+    public Integer click(){
+        lock.lock();
+        try {
+            Integer count = concurrentHashMap.get(Thread.currentThread().getName());
+            concurrentHashMap.put(Thread.currentThread().getName(), count == null ? 1 : count + 1);
+        }finally {
+            lock.unlock();
+        }
+        return concurrentHashMap.get(Thread.currentThread().getName());
+    }
+}
+main
+main-------click:------0
+thread----user-------click:------1
+thread----user-------click:------4
+thread----user-------click:------3
+thread----user-------click:------2
+thread----user-------click:------5
+thread----user-------click:------6
+thread----user-------click:------7
+thread----user-------click:------8
+thread----user-------click:------9
+thread----user-------click:------10
+thread----user-------click:------11
+thread----user-------click:------14
+thread----user-------click:------15
+thread----user-------click:------13
+thread----user-------click:------12
+thread----user-------click:------16
+thread----user-------click:------17
+thread----user-------click:------18
+thread----user-------click:------19
+thread----user-------click:------20
+thread----user-------click:------21
+thread----user-------click:------22
+thread----user-------click:------23
+thread----user-------click:------24
+thread----user-------click:------25
+thread----user-------click:------26
+thread----user-------click:------27
+thread----user-------click:------28
+thread----user-------click:------29
+thread----user-------click:------30
+thread----user-------click:------31
+thread----user-------click:------33
+thread----user-------click:------34
+thread----user-------click:------35
+thread----user-------click:------32
+thread----user-------click:------36
+thread----user-------click:------37
+thread----user-------click:------38
+thread----user-------click:------39
+thread----user-------click:------40
+thread----user-------click:------41
+thread----user-------click:------44
+thread----user-------click:------45
+thread----user-------click:------43
+thread----user-------click:------42
+thread----user-------click:------46
+thread----user-------click:------47
+thread----user-------click:------48
+thread----user-------click:------49
+thread----user-------click:------50
+thread----user-------click:------51
+thread----user-------click:------55
+thread----user-------click:------54
+thread----user-------click:------53
+thread----user-------click:------53
+thread----user-------click:------56
+thread----user-------click:------57
+thread----user-------click:------58
+thread----user-------click:------59
+thread----user-------click:------60
+thread----user-------click:------61
+thread----user-------click:------62
+thread----user-------click:------63
+thread----user-------click:------64
+thread----user-------click:------65
+thread----user-------click:------66
+thread----user-------click:------68
+thread----user-------click:------67
+thread----user-------click:------69
+thread----user-------click:------70
+thread----user-------click:------71
+thread----user-------click:------72
+thread----user-------click:------73
+thread----user-------click:------75
+thread----user-------click:------74
+thread----user-------click:------76
+thread----user-------click:------78
+thread----user-------click:------77
+thread----user-------click:------79
+thread----user-------click:------80
+thread----user-------click:------81
+thread----user-------click:------82
+thread----user-------click:------83
+thread----user-------click:------85
+thread----user-------click:------84
+thread----user-------click:------86
+thread----user-------click:------87
+thread----user-------click:------88
+thread----user-------click:------89
+thread----user-------click:------90
+thread----user-------click:------91
+thread----user-------click:------92
+thread----user-------click:------93
+thread----user-------click:------94
+thread----user-------click:------95
+thread----user-------click:------96
+thread----user-------click:------98
+thread----user-------click:------97
+thread----user-------click:------99
+thread----user-------click:------100
+main-------click:------{"thread----user":100}
+
+Process finished with exit code 0
