@@ -20,6 +20,7 @@ public class UserClickCounter {
             //如上一个线程设置了17，后面的两个线程都读到了17，导致设置了两个18，预期应该是19
             //加锁后，当前线程获取锁（独占），其他锁不能获取执行临界区内的资源，只能等当前线程执行完释放锁之后才能获取资源
             Integer count = concurrentHashMap.get(Thread.currentThread().getName());
+            //锁的话，HashMap应该也OK
             concurrentHashMap.put(Thread.currentThread().getName(), count == null ? 1 : count + 1);
         }finally {
             lock.unlock();

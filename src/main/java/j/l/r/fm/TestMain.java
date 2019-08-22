@@ -9,6 +9,7 @@ import org.apache.commons.beanutils.PropertyUtils;
 import javax.management.ReflectionException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.math.BigDecimal;
 
 /**
  * @author dongfei
@@ -58,5 +59,15 @@ public class TestMain {
         log.info("color = {}",c.getColor());
         log.info("null instanceof Object is {}",null instanceof Object);
         log.info("new Object() instanceof Object is {}",new Object() instanceof Object);
+
+        BigDecimal bigDecimal =new BigDecimal("0");
+        log.info("bigDecimal is {}",bigDecimal);
+        bigDecimal.add(new BigDecimal("10"));
+        log.info("bigDecimal is {}",bigDecimal);
+        boolean abc = BigDecimal.ZERO.compareTo(new BigDecimal("-0.00000001")) < 0;
+        log.info("abc is {}",abc);
+        log.warn("new Integer(1) == new Integer(1) is {}",new Integer(1).equals( new Integer(1)));
+        //false
+        log.warn("new Integer(1) == new Integer(1) is {}",new Integer(1) == new Integer(1));
     }
 }
