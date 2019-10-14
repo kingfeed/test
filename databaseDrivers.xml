@@ -20,6 +20,9 @@
       <artifact name="SQL Server" use="true" />
       <option name="auto-sync" value="true" />
       <option name="send-app-info" value="false" />
+      <option name="auto-commit" value="true" />
+      <option name="schema-control" value="AUTOMATIC" />
+      <code-style-scheme-name>Default</code-style-scheme-name>
     </driver>
     <driver id="sqlserver.ms">
       <artifact name="SQL Server" use="true" />
