@@ -97,11 +97,11 @@
                   </TypeMapper>
                   <TypeMapper>
                     <option name="columnType" value="decimal(\(\d+\))?" />
-                    <option name="javaType" value="java.lang.Double" />
+                    <option name="javaType" value="java.lang.BigDecimal" />
                   </TypeMapper>
                   <TypeMapper>
                     <option name="columnType" value="decimal(\(\d+,\d+\))?" />
-                    <option name="javaType" value="java.lang.Double" />
+                    <option name="javaType" value="java.lang.BigDecimal" />
                   </TypeMapper>
                   <TypeMapper>
                     <option name="columnType" value="integer" />
@@ -136,8 +136,8 @@
                     <option name="javaType" value="java.lang.Boolean" />
                   </TypeMapper>
                   <TypeMapper>
-                    <option name="columnType" value="bigint unsigned" />
-                    <option name="javaType" value="java.lang.Long" />
+                    <option name="columnType" value="tinyint(\(\d+\))?" />
+                    <option name="javaType" value="java.lang.Integer" />
                   </TypeMapper>
                 </list>
               </option>
