@@ -2,10 +2,7 @@ import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -23,6 +20,14 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        log.warn("{}",Boolean.valueOf(null));
+        /**
+         * 大于的时候才扩容
+         */
+        HashMap m = new HashMap(2);
+        m.put("1","1");
+        m.put("2","2");
+        m.put("3","3");
         BigDecimal productionQty = new BigDecimal("3.001");
         log.warn("show me = {}",productionQty.compareTo(new BigDecimal(String.valueOf(productionQty.intValue())))== 0?1:0) ;
 
