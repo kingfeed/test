@@ -71,7 +71,7 @@ public class CalendarTest {
         calendar.setTime(date);
         calendar.add(Calendar.MONTH,1);
         calendar.set(Calendar.DAY_OF_MONTH,0);
-        log.info("last day of week + {}",calendar.getTime());
+        log.info("first day of month + {}",calendar.getTime());
         return calendar.getTime();
     }
 
@@ -84,7 +84,7 @@ public class CalendarTest {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.set(Calendar.DAY_OF_MONTH,1);
-        log.info("last day of week + {}",calendar.getTime());
+        log.info("last day of month + {}",calendar.getTime());
         return calendar.getTime();
     }
 }
