@@ -13,13 +13,13 @@ public class CalendarTest {
 
 
     public static void main(String[] args) throws Exception {
-        /**
+
         dateEndStart();
         getFirstDateOfWeek(new Date());
         getLastDateOfWeek(new Date());
         getFirstDateOfMonth(new Date());
         getLastDateOfMonth(new Date());
-         **/
+
         List<Date> dateArrayList = new ArrayList<>();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dateArrayList.add(simpleDateFormat.parse("2019-10-01"));
@@ -92,7 +92,7 @@ public class CalendarTest {
         calendar.setTime(date);
         calendar.add(Calendar.MONTH,1);
         calendar.set(Calendar.DAY_OF_MONTH,0);
-        log.info("first day of month + {}",calendar.getTime());
+        log.info("last day of month + {}",calendar.getTime());
         return calendar.getTime();
     }
 
@@ -105,7 +105,7 @@ public class CalendarTest {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.set(Calendar.DAY_OF_MONTH,1);
-        log.info("last day of month + {}",calendar.getTime());
+        log.info("first day of month + {}",calendar.getTime());
         return calendar.getTime();
     }
 
