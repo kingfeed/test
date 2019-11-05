@@ -1,13 +1,54 @@
+import com.sun.deploy.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
+import sun.instrument.InstrumentationImpl;
 
+import java.lang.instrument.Instrumentation;
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Slf4j
 public class TestCollection {
 
+    private static Instrumentation instrumentation;
+
+    public static void premain(String args, Instrumentation inst) {
+        instrumentation = inst;
+    }
+
+    public static long getObjectSize(Object o) {
+        return instrumentation.getObjectSize(o);
+    }
+
+
     public static void main(String[] args) {
-        testStream();
+        testLambda2Set();
+    }
+
+    static void testLambda2Set(){
+        List<String> sl = new ArrayList<>();
+        sl.add("s");
+        sl.add("i");
+        sl.add("s");
+        sl.add("t");
+        sl.add("e");
+        sl.add("r");
+        sl.add("s");
+        log.info("toString = {}", StringUtils.join(sl,""));
+        log.info("set = {} ",sl.stream().collect(Collectors.toSet()));
+
+        List<BossDimComDatYmdBase> resultList = new ArrayList<>();
+        resultList.add(new BossDimComDatYmdBase("s"));
+        resultList.add(new BossDimComDatYmdBase("d"));
+        resultList.add(new BossDimComDatYmdBase("s"));
+        resultList.add(new BossDimComDatYmdBase("i"));
+        resultList.add(new BossDimComDatYmdBase("i"));
+        resultList.add(new BossDimComDatYmdBase("i"));
+        // log.info("size = {}",getObjectSize(new BossDimComDatYmdBase("i")));
+
+        log.info("set = {} ",resultList.stream().map(BossDimComDatYmdBase::getDayName).collect(Collectors.toSet()));
+
+
+
     }
 
     static void testStream(){
