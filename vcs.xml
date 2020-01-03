@@ -94,8 +94,12 @@
           <option name="url" value="https://github.com/netty/netty.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="http://gitlab.choicesoft.com.cn/supplier/choice-supplier.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="D:\learn" />
+    <option name="cloneParentDir" value="D:\work\workspace" />
   </component>
 </application>
