@@ -14,6 +14,12 @@ public class CalendarTest {
 
     public static void main(String[] args) throws Exception {
 
+        a();
+
+
+    }
+
+    private static void a() throws Exception {
         dateEndStart();
         getFirstDateOfWeek(new Date());
         getLastDateOfWeek(new Date());
@@ -34,10 +40,25 @@ public class CalendarTest {
         dateArrayList.add(simpleDateFormat.parse("2019-08-05"));
         dateArrayList.add(simpleDateFormat.parse("2019-07-05"));
         dateArrayList.add(simpleDateFormat.parse("2019-02-29"));
-
+        log.info("weekCode = {}",getWeekCodeByDate(simpleDateFormat.parse("2020-10-01")));
         log.info("the month day = {}",getLastDayOfMonthFilterByMonth(dateArrayList));
         log.info("the week day = {}",getLastWeekDayFilterByWeek(dateArrayList));
+    }
 
+    /**
+     * 获取某天所在周
+     *
+     * @param date
+     * @return 周code
+     */
+    public static int getWeekCodeByDate(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setFirstDayOfWeek(Calendar.MONDAY);
+        calendar.setTime(date);
+        int weekOfYear = calendar.get(Calendar.WEEK_OF_YEAR);
+        int theYear = calendar.get(Calendar.YEAR);
+        String weekCode = weekOfYear < 10 ? theYear + "0" + weekOfYear : theYear + "" + weekOfYear;
+        return Integer.valueOf(weekCode);
     }
 
     private static void dateEndStart() throws ParseException {
